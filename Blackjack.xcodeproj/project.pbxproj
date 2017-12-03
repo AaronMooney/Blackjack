@@ -15,6 +15,13 @@
 		95F9FD8A1FD43C8C00DEDF5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F9FD881FD43C8C00DEDF5C /* Main.storyboard */; };
 		95F9FD8C1FD43C8C00DEDF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F9FD8B1FD43C8C00DEDF5C /* Assets.xcassets */; };
 		95F9FD8F1FD43C8C00DEDF5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F9FD8D1FD43C8C00DEDF5C /* LaunchScreen.storyboard */; };
+		95F9FD971FD43D7600DEDF5C /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD961FD43D7600DEDF5C /* Balance.swift */; };
+		95F9FD991FD44BCC00DEDF5C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD981FD44BCC00DEDF5C /* Card.swift */; };
+		95F9FD9B1FD44D5D00DEDF5C /* BasePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD9A1FD44D5D00DEDF5C /* BasePlayer.swift */; };
+		95F9FD9D1FD44DA200DEDF5C /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD9C1FD44DA200DEDF5C /* Hand.swift */; };
+		95F9FD9F1FD44F2800DEDF5C /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD9E1FD44F2800DEDF5C /* Dealer.swift */; };
+		95F9FDA11FD44FBD00DEDF5C /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FDA01FD44FBD00DEDF5C /* Deck.swift */; };
+		95F9FDA41FD4579E00DEDF5C /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FDA31FD4579E00DEDF5C /* Shuffle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		95F9FD8B1FD43C8C00DEDF5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95F9FD8E1FD43C8C00DEDF5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95F9FD901FD43C8C00DEDF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F9FD961FD43D7600DEDF5C /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		95F9FD981FD44BCC00DEDF5C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		95F9FD9A1FD44D5D00DEDF5C /* BasePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlayer.swift; sourceTree = "<group>"; };
+		95F9FD9C1FD44DA200DEDF5C /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		95F9FD9E1FD44F2800DEDF5C /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		95F9FDA01FD44FBD00DEDF5C /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		95F9FDA31FD4579E00DEDF5C /* Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 		95F9FD7D1FD43C8C00DEDF5C /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				95F9FDA21FD4577D00DEDF5C /* Extensions */,
 				95F9FD7E1FD43C8C00DEDF5C /* AppDelegate.swift */,
 				95F9FD801FD43C8C00DEDF5C /* GameScene.sks */,
 				95F9FD821FD43C8C00DEDF5C /* Actions.sks */,
@@ -69,8 +84,22 @@
 				95F9FD8B1FD43C8C00DEDF5C /* Assets.xcassets */,
 				95F9FD8D1FD43C8C00DEDF5C /* LaunchScreen.storyboard */,
 				95F9FD901FD43C8C00DEDF5C /* Info.plist */,
+				95F9FD961FD43D7600DEDF5C /* Balance.swift */,
+				95F9FD981FD44BCC00DEDF5C /* Card.swift */,
+				95F9FD9A1FD44D5D00DEDF5C /* BasePlayer.swift */,
+				95F9FD9C1FD44DA200DEDF5C /* Hand.swift */,
+				95F9FD9E1FD44F2800DEDF5C /* Dealer.swift */,
+				95F9FDA01FD44FBD00DEDF5C /* Deck.swift */,
 			);
 			path = Blackjack;
+			sourceTree = "<group>";
+		};
+		95F9FDA21FD4577D00DEDF5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				95F9FDA31FD4579E00DEDF5C /* Shuffle.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F9FDA11FD44FBD00DEDF5C /* Deck.swift in Sources */,
 				95F9FD851FD43C8C00DEDF5C /* GameScene.swift in Sources */,
 				95F9FD871FD43C8C00DEDF5C /* GameViewController.swift in Sources */,
+				95F9FD991FD44BCC00DEDF5C /* Card.swift in Sources */,
+				95F9FD9B1FD44D5D00DEDF5C /* BasePlayer.swift in Sources */,
+				95F9FDA41FD4579E00DEDF5C /* Shuffle.swift in Sources */,
+				95F9FD9F1FD44F2800DEDF5C /* Dealer.swift in Sources */,
+				95F9FD9D1FD44DA200DEDF5C /* Hand.swift in Sources */,
+				95F9FD971FD43D7600DEDF5C /* Balance.swift in Sources */,
 				95F9FD7F1FD43C8C00DEDF5C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +329,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wit.Blackjack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wit.Blackjack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
