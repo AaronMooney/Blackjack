@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95731E251FD4DC29001D5679 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731E241FD4DC28001D5679 /* Chip.swift */; };
+		95731E271FD4DE2C001D5679 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731E261FD4DE2C001D5679 /* Player.swift */; };
+		95731E291FD4E031001D5679 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95731E281FD4E031001D5679 /* Bet.swift */; };
 		95F9FD7F1FD43C8C00DEDF5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD7E1FD43C8C00DEDF5C /* AppDelegate.swift */; };
-		95F9FD811FD43C8C00DEDF5C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95F9FD801FD43C8C00DEDF5C /* GameScene.sks */; };
-		95F9FD831FD43C8C00DEDF5C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95F9FD821FD43C8C00DEDF5C /* Actions.sks */; };
 		95F9FD851FD43C8C00DEDF5C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD841FD43C8C00DEDF5C /* GameScene.swift */; };
 		95F9FD871FD43C8C00DEDF5C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FD861FD43C8C00DEDF5C /* GameViewController.swift */; };
 		95F9FD8A1FD43C8C00DEDF5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F9FD881FD43C8C00DEDF5C /* Main.storyboard */; };
@@ -25,10 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		95731E241FD4DC28001D5679 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
+		95731E261FD4DE2C001D5679 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		95731E281FD4E031001D5679 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
 		95F9FD7B1FD43C8C00DEDF5C /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F9FD7E1FD43C8C00DEDF5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95F9FD801FD43C8C00DEDF5C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		95F9FD821FD43C8C00DEDF5C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		95F9FD841FD43C8C00DEDF5C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		95F9FD861FD43C8C00DEDF5C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		95F9FD891FD43C8C00DEDF5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,8 +78,6 @@
 			children = (
 				95F9FDA21FD4577D00DEDF5C /* Extensions */,
 				95F9FD7E1FD43C8C00DEDF5C /* AppDelegate.swift */,
-				95F9FD801FD43C8C00DEDF5C /* GameScene.sks */,
-				95F9FD821FD43C8C00DEDF5C /* Actions.sks */,
 				95F9FD841FD43C8C00DEDF5C /* GameScene.swift */,
 				95F9FD861FD43C8C00DEDF5C /* GameViewController.swift */,
 				95F9FD881FD43C8C00DEDF5C /* Main.storyboard */,
@@ -90,6 +90,9 @@
 				95F9FD9C1FD44DA200DEDF5C /* Hand.swift */,
 				95F9FD9E1FD44F2800DEDF5C /* Dealer.swift */,
 				95F9FDA01FD44FBD00DEDF5C /* Deck.swift */,
+				95731E241FD4DC28001D5679 /* Chip.swift */,
+				95731E261FD4DE2C001D5679 /* Player.swift */,
+				95731E281FD4E031001D5679 /* Bet.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -162,10 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F9FD8A1FD43C8C00DEDF5C /* Main.storyboard in Resources */,
-				95F9FD811FD43C8C00DEDF5C /* GameScene.sks in Resources */,
 				95F9FD8C1FD43C8C00DEDF5C /* Assets.xcassets in Resources */,
 				95F9FD8F1FD43C8C00DEDF5C /* LaunchScreen.storyboard in Resources */,
-				95F9FD831FD43C8C00DEDF5C /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,12 +178,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F9FDA11FD44FBD00DEDF5C /* Deck.swift in Sources */,
+				95731E251FD4DC29001D5679 /* Chip.swift in Sources */,
 				95F9FD851FD43C8C00DEDF5C /* GameScene.swift in Sources */,
 				95F9FD871FD43C8C00DEDF5C /* GameViewController.swift in Sources */,
+				95731E271FD4DE2C001D5679 /* Player.swift in Sources */,
 				95F9FD991FD44BCC00DEDF5C /* Card.swift in Sources */,
 				95F9FD9B1FD44D5D00DEDF5C /* BasePlayer.swift in Sources */,
 				95F9FDA41FD4579E00DEDF5C /* Shuffle.swift in Sources */,
 				95F9FD9F1FD44F2800DEDF5C /* Dealer.swift in Sources */,
+				95731E291FD4E031001D5679 /* Bet.swift in Sources */,
 				95F9FD9D1FD44DA200DEDF5C /* Hand.swift in Sources */,
 				95F9FD971FD43D7600DEDF5C /* Balance.swift in Sources */,
 				95F9FD7F1FD43C8C00DEDF5C /* AppDelegate.swift in Sources */,

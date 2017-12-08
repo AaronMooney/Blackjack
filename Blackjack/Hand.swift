@@ -9,7 +9,7 @@
 import Foundation
 
 class Hand{
-    private var hand = [Card]()
+    public var hand = [Card]()
     
     func addCard(card: Card){
         hand.append(card)
@@ -25,6 +25,30 @@ class Hand{
         
         for card in hand{
             var cardValue = card.getValue()
+            if (cardValue > 10){
+                cardValue = 10
+            }
+            
+            total += cardValue
+            
+            if (cardValue == 1){
+                hasAce = true;
+            }
+        }
+        
+        if (hasAce && total <= 11){
+            total += 10
+        }
+        return total
+    }
+    
+    func getValueExceptHidden()->Int{
+        var total = 0;
+        var hasAce=false
+        
+        for (index,element) in hand.enumerated(){
+            if (index == 0) {continue}
+            var cardValue = element.getValue()
             if (cardValue > 10){
                 cardValue = 10
             }
