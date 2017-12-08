@@ -333,6 +333,10 @@ class GameScene: SKScene {
         }
         cards.removeAll()
         dealButton.isHidden = false
+        
+        if(human.balance.getBalance() <= 0){
+            human.balance.addCash(cash: 600)
+        }
     }
     
     func bet(betValue: ChipValue){
