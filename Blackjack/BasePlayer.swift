@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Player and dealer superclass
+ */
+
 class BasePlayer{
     var hand:Hand
     

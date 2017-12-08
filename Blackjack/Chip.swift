@@ -9,6 +9,10 @@
 import Foundation
 import SpriteKit
 
+/*
+ Class for a money chip that has a corresponding cash value
+ */
+
 enum ChipValue: Int{
     case one = 1
     case five = 5

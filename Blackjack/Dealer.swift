@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Dealer class
+ */
+
 class Dealer:BasePlayer{
     private var card1 = Card(suit: "back", value: 0)
     

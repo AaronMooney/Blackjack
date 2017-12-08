@@ -31,12 +31,12 @@ class GameScene: SKScene {
     let deck = Deck()
     let betField = SKLabelNode(fontNamed: "arial")
     let balanceField = SKLabelNode(fontNamed: "arial")
-    var dealing = false
     let gameText = SKLabelNode(fontNamed: "arial")
-    var gameString = ""
     let dealerValue = SKLabelNode(fontNamed: "arial")
     let playerValue = SKLabelNode(fontNamed: "arial")
+    var gameString = ""
     var dealerTotal = ""
+    var dealing = false
     
     
     
@@ -46,10 +46,12 @@ class GameScene: SKScene {
         setupChips()
         setupButtons()
         currentPlayer = human
-        
-       
     }
     
+    
+    /*
+     Builds the table and creates the deck
+     */
     func buildTable(){
         let table = SKSpriteNode(imageNamed: "table")
         addChild(table)
@@ -85,6 +87,9 @@ class GameScene: SKScene {
         
     }
     
+    /*
+     Adds the buttons that the player can tap
+     */
     func setupButtons(){
         dealButton.name = "deal"
         addChild(dealButton)
@@ -111,6 +116,10 @@ class GameScene: SKScene {
         undoButton.isHidden = true
     }
     
+    /*
+     Adds the chips to the table so that the player can place a bet
+     */
+
     func setupChips(){
         addChild(chip1)
         chip1.position = CGPoint(x:size.width/2 - 165,y:40)
@@ -133,6 +142,10 @@ class GameScene: SKScene {
         addChild(chip500)
         chip500.position = CGPoint(x:size.width/2 + 165,y:40)
     }
+    
+    /*
+     Toggles the visibility of the chips
+     */
     
     func showChip()
     {
@@ -165,6 +178,9 @@ class GameScene: SKScene {
         }
     }
     
+    /*
+     Deal method which handles the card dealing logic
+     */
     func deal(){
         dealButton.isHidden = true
         chip1.isHidden = true
@@ -179,6 +195,7 @@ class GameScene: SKScene {
         undoButton.isHidden = true
         var count = 0
         
+        //create a temp card (face down)
         let card = Card(suit: "back",value: 0)
         card.position = CGPoint(x:size.width/2 - 50, y:size.height - 50)
         addChild(card)
@@ -187,6 +204,7 @@ class GameScene: SKScene {
         let newCard = deck.getCard()
         var pos = 0
         var hand = human.hand
+        //determine dealer and player positions
         if(self.currentPlayer is Player){
             hand = human.hand
             pos = Int(size.height/2 - 100)
@@ -201,6 +219,9 @@ class GameScene: SKScene {
         card.run(moveCard,completion: {[unowned self] in self.human.setCanBet(canBet: true)
             count += 1
             self.dealing = true
+            
+            // check if dealer has one card and set the vaue of that face down card
+            // if false then remove the temp card and replace it with the new card
             if (self.currentPlayer is Dealer && self.dealer.hand.getLength() == 1){
                 self.dealer.setCard1(card: newCard)
                 self.cards.append(card)
@@ -212,6 +233,7 @@ class GameScene: SKScene {
                 newCard.position = CGPoint(x: xPos, y: pos)
                 newCard.zPosition = 1
             }
+            // give both players two cards
             if (self.dealer.hand.getLength() < 2){
                 if (self.currentPlayer is Player){
                     self.currentPlayer = self.dealer
@@ -219,6 +241,8 @@ class GameScene: SKScene {
                     self.currentPlayer = self.human
                 }
                 self.deal()
+                
+                //check first for blackjack
             } else if (self.dealer.hand.getLength() == 2 && self.human.hand.getLength() == 2){
                 if(self.human.hand.getValue() == 21 || self.dealer.hand.getValue() == 21){
                     self.gameOver(hasBlackJack: true)
@@ -228,14 +252,19 @@ class GameScene: SKScene {
                     self.doubleButton.isHidden = false
                 }
             }
+            //dealer must deal until 17 or greater and must stand at 17
             if (self.dealer.hand.getLength() >=  3 && self.dealer.hand.getValue() < 17){
                 self.deal()
+                
+                // end game if player stands and dealer is standing
             } else if (self.human.isStanding() && self.dealer.hand.getValue() >= 17){
                 self.standButton.isHidden = true
                 self.hitButton.isHidden = true
                 self.doubleButton.isHidden = true
                 self.gameOver(hasBlackJack: false)
             }
+            
+            // end game if player busts
             if(self.human.hand.getValue() > 21){
                 self.standButton.isHidden = true
                 self.hitButton.isHidden = true
@@ -249,9 +278,14 @@ class GameScene: SKScene {
         }
     }
     
+    /*
+     Game over function to determine the winner and add money to the players balance if they win
+     */
     func gameOver(hasBlackJack: Bool){
         hitButton.isHidden = true
         standButton.isHidden = true
+        
+        //get the dealers first hidden card and add it to the scene
         let tempPos = cards[1].position
         let tempCard = dealer.getCard1()
         addChild(tempCard)
@@ -260,6 +294,7 @@ class GameScene: SKScene {
         tempCard.zPosition = 0
         var winner:BasePlayer = human
         
+        //determine who got blackjack and blackjack pays 3/2
         if(hasBlackJack){
             gameString = "Blackjack!"
             if(human.hand.getValue() > dealer.hand.getValue()){
@@ -272,6 +307,8 @@ class GameScene: SKScene {
             return
         }
         
+        //determine winner if no blackjack and add payout if won
+        //regular win pays 2/1 and push refunds bet
         if (human.hand.getValue() > 21){
             gameString = "Dealer Wins!"
             winner = dealer
@@ -305,17 +342,20 @@ class GameScene: SKScene {
         dealButton.isHidden = true
     }
     
+    // method to move the cash text to the winner
     func moveCash(position: Int){
         let moveCash = SKAction.moveTo(y:CGFloat(position),duration: 2.0)
         betField.run(moveCash, completion: { [unowned self] in self.resetBetPos()})
     }
     
+    //resets the position of the bet text
     func resetBetPos(){
         betField.removeAllChildren()
         betField.position = CGPoint(x: size.width/2 ,y: size.height/2 + 50)
         newGame()
     }
     
+    // clears the table and resets the deck and bets for a new game
     func newGame(){
         currentPlayer = human
         deck.newDeck()
@@ -335,10 +375,11 @@ class GameScene: SKScene {
         dealButton.isHidden = false
         
         if(human.balance.getBalance() <= 0){
-            human.balance.addCash(cash: 600)
+            human.balance.addCash(cash: 500)
         }
     }
     
+    //method to place a bet
     func bet(betValue: ChipValue){
         if(betValue.rawValue > human.balance.getBalance()){
             print("You can't afford that bet")
@@ -350,6 +391,7 @@ class GameScene: SKScene {
         betField.text = "$: " + String(bet.getBet())
     }
     
+    // hit method
     func hit(){
         if (human.getCanBet()){
             currentPlayer = human
@@ -360,6 +402,7 @@ class GameScene: SKScene {
         hitButton.isHidden = false
     }
     
+    // method to double bet and hit
     func double(){
         if (human.getCanBet()){
             currentPlayer = human
@@ -375,6 +418,7 @@ class GameScene: SKScene {
         }
     }
     
+    // method to stand
     func stand(){
         human.setStand(stand: true)
         standButton.isHidden = true
@@ -388,6 +432,7 @@ class GameScene: SKScene {
         }
     }
     
+    // update method that handles game text
     override func update(_ currentTime: TimeInterval) {
         balanceField.text = "Balance: $" + String(human.balance.getBalance())
         betField.text = "Bet: $" + String(bet.getBet())
@@ -413,6 +458,9 @@ class GameScene: SKScene {
         
     }
     
+    /*
+     Method that detects what the player taps and performs the relevant action
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         guard let touch = touches.first else{

@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ Class for a players hand
+ Can add a card to a hand, clear the hand, return how many cards a player is holding and return the total value of the hand
+ */
+
 class Hand{
     public var hand = [Card]()
     public var hasAce = false
@@ -47,6 +52,7 @@ class Hand{
         var total = 0;
         hasAce = false
         
+        //skip the first card in the hand in case of dealers face down card
         for (index,element) in hand.enumerated(){
             if (index == 0) {continue}
             var cardValue = element.getValue()

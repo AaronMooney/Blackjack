@@ -6,6 +6,10 @@
 //  Copyright © 2017 Aaron Mooney. All rights reserved.
 //
 
+/*
+ Extension that allows the shuffling of the deck array
+ Solution from stack overflow
+ */
 import Foundation
 extension MutableCollection {
     /// Shuffles the contents of this collection.

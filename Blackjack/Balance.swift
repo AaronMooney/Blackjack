@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Players bank balance
+ */
+
 class Balance {
     
     var amount = 500

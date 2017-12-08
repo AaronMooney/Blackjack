@@ -9,6 +9,10 @@
 import Foundation
 import SpriteKit
 
+/*
+ Card class, initializes a card with a suit and value and adds the relevent sprite
+ */
+
 class Card:SKSpriteNode {
     private var suit:String = ""
     private var value:Int = 0

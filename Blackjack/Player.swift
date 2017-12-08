@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Player class that holds their balance and whether they are standing or can bet
+ */
+
 class Player: BasePlayer{
     var balance:Balance
     private var stand = false

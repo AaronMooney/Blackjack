@@ -8,6 +8,11 @@
 
 import Foundation
 class Bet{
+    
+    /*
+     Class that stores the current bet and allows for is to be added to, doubled or cleared
+     */
+    
     private var bet = 0
     
     
