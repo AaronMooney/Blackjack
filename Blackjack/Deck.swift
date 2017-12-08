@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Deck class that creates an array of cards and allows for retreival and shuffling
+ */
+
 class Deck{
     private var deck = [Card]()
     private var index = -1
