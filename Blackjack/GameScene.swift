@@ -377,6 +377,7 @@ class GameScene: SKScene {
         if(human.balance.getBalance() <= 0){
             human.balance.addCash(cash: 500)
             showChip()
+            
         }
     }
     
