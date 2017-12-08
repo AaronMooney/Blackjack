@@ -10,6 +10,7 @@ import Foundation
 
 class Hand{
     public var hand = [Card]()
+    public var hasAce = false
     
     func addCard(card: Card){
         hand.append(card)
@@ -21,7 +22,7 @@ class Hand{
     
     func getValue()->Int{
         var total = 0;
-        var hasAce=false
+        hasAce = false
         
         for card in hand{
             var cardValue = card.getValue()
@@ -44,7 +45,7 @@ class Hand{
     
     func getValueExceptHidden()->Int{
         var total = 0;
-        var hasAce=false
+        hasAce = false
         
         for (index,element) in hand.enumerated(){
             if (index == 0) {continue}

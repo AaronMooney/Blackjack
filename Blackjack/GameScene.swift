@@ -290,6 +290,10 @@ class GameScene: SKScene {
             gameString = "You Win!"
             human.balance.addCash(cash: bet.getBet() * 2)
             winner = human
+        } else if (dealer.hand.getValue() > human.hand.getValue()){
+            //dealer wins
+            gameString = "Dealer Wins!"
+            winner = dealer
         }
         
         if (winner is Player){
@@ -392,6 +396,9 @@ class GameScene: SKScene {
         
         if ( human.hand.getValue() > 0){
             playerValue.text = String(human.hand.getValue())
+            if(human.hand.hasAce){
+                playerValue.text = String(human.hand.getValue() - 10) + " / " + String(human.hand.getValue())
+            }
         }
         if ( dealer.hand.getValue() > 0 && !human.isStanding()){
             dealerTotal = String(dealer.hand.getValueExceptHidden())
